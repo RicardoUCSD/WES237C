@@ -1,0 +1,49 @@
+INFO: [HLS 200-10] Running '/tools/Xilinx/Vitis_HLS/2022.2/bin/unwrapped/lnx64.o/vitis_hls'
+INFO: [HLS 200-10] For user 'wes_2025_r_lizarraga' on host 'waiter' (Linux_x86_64 version 5.15.0-122-generic) on Sun Oct 27 14:41:24 PDT 2024
+INFO: [HLS 200-10] On os Ubuntu 22.04.5 LTS
+INFO: [HLS 200-10] In directory '/home/wes_2025_r_lizarraga/project2/cordic_LUT'
+Sourcing Tcl script '/home/wes_2025_r_lizarraga/project2/cordic_LUT/cordiccart2pol/solution1/csynth.tcl'
+INFO: [HLS 200-1510] Running: source /home/wes_2025_r_lizarraga/project2/cordic_LUT/cordiccart2pol/solution1/csynth.tcl
+INFO: [HLS 200-1510] Running: open_project cordiccart2pol 
+INFO: [HLS 200-10] Opening project '/home/wes_2025_r_lizarraga/project2/cordic_LUT/cordiccart2pol'.
+INFO: [HLS 200-1510] Running: set_top cordiccart2pol 
+INFO: [HLS 200-1510] Running: add_files cordiccart2pol.cpp 
+INFO: [HLS 200-10] Adding design file 'cordiccart2pol.cpp' to the project
+INFO: [HLS 200-1510] Running: add_files cordiccart2pol.h 
+INFO: [HLS 200-10] Adding design file 'cordiccart2pol.h' to the project
+INFO: [HLS 200-1510] Running: add_files -tb cordiccart2pol_test.cpp -cflags -Wno-unknown-pragmas -Wno-unknown-pragmas -csimflags -Wno-unknown-pragmas 
+INFO: [HLS 200-10] Adding test bench file 'cordiccart2pol_test.cpp' to the project
+INFO: [HLS 200-1510] Running: open_solution solution1 -flow_target vivado 
+INFO: [HLS 200-10] Opening solution '/home/wes_2025_r_lizarraga/project2/cordic_LUT/cordiccart2pol/solution1'.
+INFO: [SYN 201-201] Setting up clock 'default' with a period of 10ns.
+INFO: [HLS 200-1611] Setting target device to 'xc7z020-clg400-1'
+INFO: [HLS 200-1505] Using flow_target 'vivado'
+Resolution: For help on HLS 200-1505 see www.xilinx.com/cgi-bin/docs/rdoc?v=2022.2;t=hls+guidance;d=200-1505.html
+INFO: [HLS 200-1464] Running solution command: config_interface -m_axi_latency=0
+INFO: [HLS 200-1510] Running: set_part xc7z020-clg400-1 
+INFO: [HLS 200-1510] Running: create_clock -period 10 -name default 
+INFO: [HLS 200-1510] Running: config_interface -m_axi_latency 0 
+INFO: [HLS 200-1510] Running: csynth_design 
+Running Dispatch Server on port: 36239
+INFO: [HLS 200-111] Finished File checks and directory preparation: CPU user time: 0 seconds. CPU system time: 0.01 seconds. Elapsed time: 10.02 seconds; current allocated memory: 214.410 MB.
+INFO: [HLS 200-10] Analyzing design file 'cordiccart2pol.cpp' ... 
+INFO: [HLS 200-111] Finished Source Code Analysis and Preprocessing: CPU user time: 1.51 seconds. CPU system time: 0.46 seconds. Elapsed time: 1.96 seconds; current allocated memory: 214.410 MB.
+INFO: [HLS 200-777] Using interface defaults for 'Vivado' flow target.
+INFO: [HLS 214-186] Unrolling loop 'VITIS_LOOP_47_1' (cordiccart2pol.cpp:47:19) in function 'cordiccart2pol' completely with a factor of 8 (cordiccart2pol.cpp:33:0)
+ERROR: [HLS 214-133] Global variable 'my_LUT_r' must have definition (./cordiccart2pol.h:16:0)
+ERROR: [HLS 214-133] Global variable 'my_LUT_th' must have definition (./cordiccart2pol.h:17:0)
+ERROR: [HLS 214-135] Syn check fail!
+ERROR: [HLS 200-1715] Encountered problem during source synthesis
+INFO: [HLS 200-111] Finished Command csynth_design CPU user time: 3.16 seconds. CPU system time: 0.77 seconds. Elapsed time: 3.93 seconds; current allocated memory: 0.836 MB.
+Pre-synthesis failed.
+    while executing
+"source /home/wes_2025_r_lizarraga/project2/cordic_LUT/cordiccart2pol/solution1/csynth.tcl"
+    invoked from within
+"hls::main /home/wes_2025_r_lizarraga/project2/cordic_LUT/cordiccart2pol/solution1/csynth.tcl"
+    ("uplevel" body line 1)
+    invoked from within
+"uplevel 1 hls::main {*}$newargs"
+    (procedure "hls_proc" line 16)
+    invoked from within
+"hls_proc [info nameofexecutable] $argv"
+INFO: [HLS 200-112] Total CPU user time: 3.76 seconds. Total CPU system time: 0.96 seconds. Total elapsed time: 14.65 seconds; peak allocated memory: 215.246 MB.

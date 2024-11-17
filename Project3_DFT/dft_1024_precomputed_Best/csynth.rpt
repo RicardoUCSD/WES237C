@@ -1,0 +1,282 @@
+
+
+================================================================
+== Synthesis Summary Report of 'dft'
+================================================================
++ General Information: 
+    * Date:           Sat Nov 16 01:56:51 2024
+    * Version:        2022.2 (Build 3670227 on Oct 13 2022)
+    * Project:        hls
+    * Solution:       solution1 (Vivado IP Flow Target)
+    * Product family: zynq
+    * Target device:  xc7z020-clg400-1
+    
+
++ Performance & Resource Estimates: 
+    
+    PS: '+' for module; 'o' for loop; '*' for dataflow
+    +----------------------------------------+--------+-------+---------+-----------+----------+---------+------+----------+----------+----------+-----------+------------+-----+
+    |                 Modules                |  Issue |       | Latency |  Latency  | Iteration|         | Trip |          |          |          |           |            |     |
+    |                 & Loops                |  Type  | Slack | (cycles)|    (ns)   |  Latency | Interval| Count| Pipelined|   BRAM   |    DSP   |     FF    |     LUT    | URAM|
+    +----------------------------------------+--------+-------+---------+-----------+----------+---------+------+----------+----------+----------+-----------+------------+-----+
+    |+ dft*                                  |  Timing|  -4.11|  5386268|  6.145e+07|         -|  5385242|     -|  dataflow|  48 (17%)|  34 (15%)|  7596 (7%)|  9289 (17%)|    -|
+    | + VITIS_LOOP_61_1_proc                 |       -|   2.17|     1026|  1.026e+04|         -|     1026|     -|        no|         -|         -|   13 (~0%)|    73 (~0%)|    -|
+    |  o VITIS_LOOP_61_1                     |       -|   7.30|     1024|  1.024e+04|         1|        1|  1024|       yes|         -|         -|          -|           -|    -|
+    | + VITIS_LOOP_71_2_proc                 |  Timing|  -4.11|  5385241|  6.143e+07|         -|  5385241|     -|        no|  40 (14%)|  34 (15%)|  7545 (7%)|  9144 (17%)|    -|
+    |  o VITIS_LOOP_71_2                     |       -|   7.30|  5385239|  6.143e+07|      6306|        -|  1024|        no|         -|         -|          -|           -|    -|
+    |   + dataflow_in_loop_VITIS_LOOP_71_2*  |  Timing|  -4.11|     6303|  7.190e+04|         -|     5258|     -|  dataflow|  40 (14%)|  34 (15%)|  7359 (6%)|  9080 (17%)|    -|
+    |    + Loop1                             |  Timing|  -0.85|      518|  5.180e+03|         -|      518|     -|        no|   16 (5%)|         -|  804 (~0%)|   1714 (3%)|    -|
+    |     o VITIS_LOOP_12_1                  |      II|   7.30|      516|  5.160e+03|         9|        4|   128|       yes|         -|         -|          -|           -|    -|
+    |    + Loop2                             |       -|   0.04|      524|  5.240e+03|         -|      524|     -|        no|         -|  32 (14%)|  4818 (4%)|  5501 (10%)|    -|
+    |     o VITIS_LOOP_23_1                  |      II|   7.30|      522|  5.220e+03|        15|        4|   128|       yes|         -|         -|          -|           -|    -|
+    |    + Loop3                             |  Timing|  -0.91|     5257|  5.257e+04|         -|     5257|     -|        no|         -|   2 (~0%)|  1151 (1%)|   1204 (2%)|    -|
+    |     + Loop3_Pipeline_VITIS_LOOP_35_1   |  Timing|  -0.91|     5253|  5.253e+04|         -|     5253|     -|        no|         -|   2 (~0%)|  976 (~0%)|   1042 (1%)|    -|
+    |      o VITIS_LOOP_35_1                 |      II|   7.30|     5251|  5.251e+04|        45|       41|   128|       yes|         -|         -|          -|           -|    -|
+    |    + Block_entry_proc_proc             |       -|   0.41|        1|     10.000|         -|        1|     -|        no|         -|         -|   37 (~0%)|    45 (~0%)|    -|
+    |    + Block_entry_proc_proc7            |       -|   0.41|        1|     10.000|         -|        1|     -|        no|         -|         -|   37 (~0%)|    45 (~0%)|    -|
+    |    + Block_entry_proc_proc6            |       -|   7.30|        1|     10.000|         -|        1|     -|        no|         -|         -|    3 (~0%)|    34 (~0%)|    -|
+    |    + Block_entry_proc_proc8            |       -|   7.30|        1|     10.000|         -|        1|     -|        no|         -|         -|    3 (~0%)|    34 (~0%)|    -|
+    +----------------------------------------+--------+-------+---------+-----------+----------+---------+------+----------+----------+----------+-----------+------------+-----+
+
+
+================================================================
+== HW Interfaces
+================================================================
+* S_AXILITE Interfaces
++---------------+------------+---------------+
+| Interface     | Data Width | Address Width |
++---------------+------------+---------------+
+| s_axi_control | 32         | 4             |
++---------------+------------+---------------+
+
+* S_AXILITE Registers
++---------------+----------+--------+-------+--------+----------------------------------+----------------------------------------------------------------------+
+| Interface     | Register | Offset | Width | Access | Description                      | Bit Fields                                                           |
++---------------+----------+--------+-------+--------+----------------------------------+----------------------------------------------------------------------+
+| s_axi_control | CTRL     | 0x00   | 32    | RW     | Control signals                  | 0=AP_START 1=AP_DONE 2=AP_IDLE 3=AP_READY 7=AUTO_RESTART 9=INTERRUPT |
+| s_axi_control | GIER     | 0x04   | 32    | RW     | Global Interrupt Enable Register | 0=Enable                                                             |
+| s_axi_control | IP_IER   | 0x08   | 32    | RW     | IP Interrupt Enable Register     | 0=CHAN0_INT_EN 1=CHAN1_INT_EN                                        |
+| s_axi_control | IP_ISR   | 0x0c   | 32    | RW     | IP Interrupt Status Register     | 0=CHAN0_INT_ST 1=CHAN1_INT_ST                                        |
++---------------+----------+--------+-------+--------+----------------------------------+----------------------------------------------------------------------+
+
+* AXIS
++-----------+---------------+-------+--------+--------+
+| Interface | Register Mode | TDATA | TREADY | TVALID |
++-----------+---------------+-------+--------+--------+
+| imag_in   | both          | 64    | 1      | 1      |
+| imag_out  | both          | 64    | 1      | 1      |
+| real_in   | both          | 64    | 1      | 1      |
+| real_out  | both          | 64    | 1      | 1      |
++-----------+---------------+-------+--------+--------+
+
+* TOP LEVEL CONTROL
++-----------+------------+-----------+
+| Interface | Type       | Ports     |
++-----------+------------+-----------+
+| ap_clk    | clock      | ap_clk    |
+| ap_rst_n  | reset      | ap_rst_n  |
+| interrupt | interrupt  | interrupt |
+| ap_ctrl   | ap_ctrl_hs |           |
++-----------+------------+-----------+
+
+
+================================================================
+== SW I/O Information
+================================================================
+* Top Function Arguments
++----------+-----------+-------------------+
+| Argument | Direction | Datatype          |
++----------+-----------+-------------------+
+| real_in  | in        | stream<DTYPE, 0>& |
+| imag_in  | in        | stream<DTYPE, 0>& |
+| real_out | out       | stream<DTYPE, 0>& |
+| imag_out | out       | stream<DTYPE, 0>& |
++----------+-----------+-------------------+
+
+* SW-to-HW Mapping
++----------+--------------+-----------+
+| Argument | HW Interface | HW Type   |
++----------+--------------+-----------+
+| real_in  | real_in      | interface |
+| imag_in  | imag_in      | interface |
+| real_out | real_out     | interface |
+| imag_out | imag_out     | interface |
++----------+--------------+-----------+
+
+
+================================================================
+== Bind Op Report
+================================================================
++------------------------------------------+-----+--------+--------------+------+---------+---------+
+| Name                                     | DSP | Pragma | Variable     | Op   | Impl    | Latency |
++------------------------------------------+-----+--------+--------------+------+---------+---------+
+| + dft                                    | 34  |        |              |      |         |         |
+|  + VITIS_LOOP_61_1_proc                  | 0   |        |              |      |         |         |
+|    add_ln61_fu_100_p2                    | -   |        | add_ln61     | add  | fabric  | 0       |
+|  + VITIS_LOOP_71_2_proc                  | 34  |        |              |      |         |         |
+|   + dataflow_in_loop_VITIS_LOOP_71_2     | 34  |        |              |      |         |         |
+|     empty_15_U                           | -   |        | empty_15     | fifo | srl     | 0       |
+|     empty_16_U                           | -   |        | empty_16     | fifo | srl     | 0       |
+|     tmp_U                                | -   |        | tmp          | fifo | srl     | 0       |
+|     i_c_channel_U                        | -   |        | i_c_channel  | fifo | srl     | 0       |
+|     i_c1_channel_U                       | -   |        | i_c1_channel | fifo | srl     | 0       |
+|    + Loop1                               | 0   |        |              |      |         |         |
+|      mul_10s_10s_10_1_1_U7               | -   |        | mul_ln15     | mul  | auto    | 0       |
+|      add_ln15_fu_1126_p2                 | -   |        | add_ln15     | add  | fabric  | 0       |
+|      add_ln15_1_fu_1164_p2               | -   |        | add_ln15_1   | add  | fabric  | 0       |
+|      add_ln16_fu_1248_p2                 | -   |        | add_ln16     | add  | fabric  | 0       |
+|      add_ln15_2_fu_1191_p2               | -   |        | add_ln15_2   | add  | fabric  | 0       |
+|      add_ln16_1_fu_1374_p2               | -   |        | add_ln16_1   | add  | fabric  | 0       |
+|      add_ln15_3_fu_1311_p2               | -   |        | add_ln15_3   | add  | fabric  | 0       |
+|      add_ln16_2_fu_1508_p2               | -   |        | add_ln16_2   | add  | fabric  | 0       |
+|      add_ln15_4_fu_1325_p2               | -   |        | add_ln15_4   | add  | fabric  | 0       |
+|      add_ln16_3_fu_1518_p2               | -   |        | add_ln16_3   | add  | fabric  | 0       |
+|      add_ln15_5_fu_1422_p2               | -   |        | add_ln15_5   | add  | fabric  | 0       |
+|      add_ln16_4_fu_1567_p2               | -   |        | add_ln16_4   | add  | fabric  | 0       |
+|      add_ln15_6_fu_1448_p2               | -   |        | add_ln15_6   | add  | fabric  | 0       |
+|      add_ln16_5_fu_1612_p2               | -   |        | add_ln16_5   | add  | fabric  | 0       |
+|      add_ln12_fu_1475_p2                 | -   |        | add_ln12     | add  | fabric  | 0       |
+|    + Loop2                               | 32  |        |              |      |         |         |
+|      fmul_32ns_32ns_32_4_max_dsp_1_U46   | 3   |        | mul          | fmul | maxdsp  | 3       |
+|      fmul_32ns_32ns_32_4_max_dsp_1_U47   | 3   |        | mul7         | fmul | maxdsp  | 3       |
+|      fsub_32ns_32ns_32_5_full_dsp_1_U42  | 2   |        | sub          | fsub | fulldsp | 4       |
+|      fmul_32ns_32ns_32_4_max_dsp_1_U48   | 3   |        | mul1         | fmul | maxdsp  | 3       |
+|      fmul_32ns_32ns_32_4_max_dsp_1_U49   | 3   |        | mul2         | fmul | maxdsp  | 3       |
+|      fadd_32ns_32ns_32_5_full_dsp_1_U43  | 2   |        | add          | fadd | fulldsp | 4       |
+|      fmul_32ns_32ns_32_4_max_dsp_1_U50   | 3   |        | mul_1        | fmul | maxdsp  | 3       |
+|      fmul_32ns_32ns_32_4_max_dsp_1_U51   | 3   |        | mul7_1       | fmul | maxdsp  | 3       |
+|      fsub_32ns_32ns_32_5_full_dsp_1_U44  | 2   |        | sub_1        | fsub | fulldsp | 4       |
+|      fmul_32ns_32ns_32_4_max_dsp_1_U52   | 3   |        | mul10_1      | fmul | maxdsp  | 3       |
+|      fmul_32ns_32ns_32_4_max_dsp_1_U53   | 3   |        | mul11_1      | fmul | maxdsp  | 3       |
+|      fadd_32ns_32ns_32_5_full_dsp_1_U45  | 2   |        | add_1        | fadd | fulldsp | 4       |
+|      fmul_32ns_32ns_32_4_max_dsp_1_U46   | 3   |        | mul_2        | fmul | maxdsp  | 3       |
+|      fmul_32ns_32ns_32_4_max_dsp_1_U47   | 3   |        | mul7_2       | fmul | maxdsp  | 3       |
+|      fsub_32ns_32ns_32_5_full_dsp_1_U42  | 2   |        | sub_2        | fsub | fulldsp | 4       |
+|      fmul_32ns_32ns_32_4_max_dsp_1_U48   | 3   |        | mul10_2      | fmul | maxdsp  | 3       |
+|      fmul_32ns_32ns_32_4_max_dsp_1_U49   | 3   |        | mul11_2      | fmul | maxdsp  | 3       |
+|      fadd_32ns_32ns_32_5_full_dsp_1_U43  | 2   |        | add_2        | fadd | fulldsp | 4       |
+|      fmul_32ns_32ns_32_4_max_dsp_1_U50   | 3   |        | mul_3        | fmul | maxdsp  | 3       |
+|      fmul_32ns_32ns_32_4_max_dsp_1_U51   | 3   |        | mul7_3       | fmul | maxdsp  | 3       |
+|      fsub_32ns_32ns_32_5_full_dsp_1_U44  | 2   |        | sub_3        | fsub | fulldsp | 4       |
+|      fmul_32ns_32ns_32_4_max_dsp_1_U52   | 3   |        | mul10_3      | fmul | maxdsp  | 3       |
+|      fmul_32ns_32ns_32_4_max_dsp_1_U53   | 3   |        | mul11_3      | fmul | maxdsp  | 3       |
+|      fadd_32ns_32ns_32_5_full_dsp_1_U45  | 2   |        | add_3        | fadd | fulldsp | 4       |
+|      fmul_32ns_32ns_32_4_max_dsp_1_U46   | 3   |        | mul_4        | fmul | maxdsp  | 3       |
+|      fmul_32ns_32ns_32_4_max_dsp_1_U47   | 3   |        | mul7_4       | fmul | maxdsp  | 3       |
+|      fsub_32ns_32ns_32_5_full_dsp_1_U42  | 2   |        | sub_4        | fsub | fulldsp | 4       |
+|      fmul_32ns_32ns_32_4_max_dsp_1_U48   | 3   |        | mul10_4      | fmul | maxdsp  | 3       |
+|      fmul_32ns_32ns_32_4_max_dsp_1_U49   | 3   |        | mul11_4      | fmul | maxdsp  | 3       |
+|      fadd_32ns_32ns_32_5_full_dsp_1_U43  | 2   |        | add_4        | fadd | fulldsp | 4       |
+|      fmul_32ns_32ns_32_4_max_dsp_1_U50   | 3   |        | mul_5        | fmul | maxdsp  | 3       |
+|      fmul_32ns_32ns_32_4_max_dsp_1_U51   | 3   |        | mul7_5       | fmul | maxdsp  | 3       |
+|      fsub_32ns_32ns_32_5_full_dsp_1_U44  | 2   |        | sub_5        | fsub | fulldsp | 4       |
+|      fmul_32ns_32ns_32_4_max_dsp_1_U52   | 3   |        | mul10_5      | fmul | maxdsp  | 3       |
+|      fmul_32ns_32ns_32_4_max_dsp_1_U53   | 3   |        | mul11_5      | fmul | maxdsp  | 3       |
+|      fadd_32ns_32ns_32_5_full_dsp_1_U45  | 2   |        | add_5        | fadd | fulldsp | 4       |
+|      fmul_32ns_32ns_32_4_max_dsp_1_U46   | 3   |        | mul_6        | fmul | maxdsp  | 3       |
+|      fmul_32ns_32ns_32_4_max_dsp_1_U47   | 3   |        | mul7_6       | fmul | maxdsp  | 3       |
+|      fsub_32ns_32ns_32_5_full_dsp_1_U42  | 2   |        | sub_6        | fsub | fulldsp | 4       |
+|      fmul_32ns_32ns_32_4_max_dsp_1_U48   | 3   |        | mul10_6      | fmul | maxdsp  | 3       |
+|      fmul_32ns_32ns_32_4_max_dsp_1_U49   | 3   |        | mul11_6      | fmul | maxdsp  | 3       |
+|      fadd_32ns_32ns_32_5_full_dsp_1_U43  | 2   |        | add_6        | fadd | fulldsp | 4       |
+|      fmul_32ns_32ns_32_4_max_dsp_1_U50   | 3   |        | mul_7        | fmul | maxdsp  | 3       |
+|      fmul_32ns_32ns_32_4_max_dsp_1_U51   | 3   |        | mul7_7       | fmul | maxdsp  | 3       |
+|      fsub_32ns_32ns_32_5_full_dsp_1_U44  | 2   |        | sub_7        | fsub | fulldsp | 4       |
+|      fmul_32ns_32ns_32_4_max_dsp_1_U52   | 3   |        | mul10_7      | fmul | maxdsp  | 3       |
+|      fmul_32ns_32ns_32_4_max_dsp_1_U53   | 3   |        | mul11_7      | fmul | maxdsp  | 3       |
+|      fadd_32ns_32ns_32_5_full_dsp_1_U45  | 2   |        | add_7        | fadd | fulldsp | 4       |
+|      add_ln23_fu_606_p2                  | -   |        | add_ln23     | add  | fabric  | 0       |
+|    + Loop3                               | 2   |        |              |      |         |         |
+|     + Loop3_Pipeline_VITIS_LOOP_35_1     | 2   |        |              |      |         |         |
+|       fadd_32ns_32ns_32_5_full_dsp_1_U63 | 2   |        | add_i        | fadd | fulldsp | 4       |
+|       fadd_32ns_32ns_32_5_full_dsp_1_U63 | 2   |        | add1_i       | fadd | fulldsp | 4       |
+|       fadd_32ns_32ns_32_5_full_dsp_1_U63 | 2   |        | add_1_i      | fadd | fulldsp | 4       |
+|       fadd_32ns_32ns_32_5_full_dsp_1_U63 | 2   |        | add16_1_i    | fadd | fulldsp | 4       |
+|       fadd_32ns_32ns_32_5_full_dsp_1_U63 | 2   |        | add_2_i      | fadd | fulldsp | 4       |
+|       fadd_32ns_32ns_32_5_full_dsp_1_U63 | 2   |        | add16_2_i    | fadd | fulldsp | 4       |
+|       fadd_32ns_32ns_32_5_full_dsp_1_U63 | 2   |        | add_3_i      | fadd | fulldsp | 4       |
+|       fadd_32ns_32ns_32_5_full_dsp_1_U63 | 2   |        | add16_3_i    | fadd | fulldsp | 4       |
+|       fadd_32ns_32ns_32_5_full_dsp_1_U63 | 2   |        | add_4_i      | fadd | fulldsp | 4       |
+|       fadd_32ns_32ns_32_5_full_dsp_1_U63 | 2   |        | add16_4_i    | fadd | fulldsp | 4       |
+|       fadd_32ns_32ns_32_5_full_dsp_1_U63 | 2   |        | add_5_i      | fadd | fulldsp | 4       |
+|       fadd_32ns_32ns_32_5_full_dsp_1_U63 | 2   |        | add16_5_i    | fadd | fulldsp | 4       |
+|       fadd_32ns_32ns_32_5_full_dsp_1_U63 | 2   |        | add_6_i      | fadd | fulldsp | 4       |
+|       fadd_32ns_32ns_32_5_full_dsp_1_U63 | 2   |        | add16_6_i    | fadd | fulldsp | 4       |
+|       fadd_32ns_32ns_32_5_full_dsp_1_U63 | 2   |        | add_7_i      | fadd | fulldsp | 4       |
+|       fadd_32ns_32ns_32_5_full_dsp_1_U63 | 2   |        | add16_7_i    | fadd | fulldsp | 4       |
+|       add_ln35_fu_326_p2                 | -   |        | add_ln35     | add  | fabric  | 0       |
++------------------------------------------+-----+--------+--------------+------+---------+---------+
+
+
+================================================================
+== Bind Storage Report
+================================================================
++---------------------------------------+------+------+--------+--------------------------------+---------+------+---------+
+| Name                                  | BRAM | URAM | Pragma | Variable                       | Storage | Impl | Latency |
++---------------------------------------+------+------+--------+--------------------------------+---------+------+---------+
+| + dft                                 | 48   | 0    |        |                                |         |      |         |
+|   real_U                              | 4    | -    |        | real                           | ram_s2p | auto | 1       |
+|   imag_U                              | 4    | -    |        | imag                           | ram_s2p | auto | 1       |
+|  + VITIS_LOOP_71_2_proc               | 40   | 0    |        |                                |         |      |         |
+|   + dataflow_in_loop_VITIS_LOOP_71_2  | 40   | 0    |        |                                |         |      |         |
+|     cos_U                             | 4    | -    |        | cos                            | ram_t2p | auto | 1       |
+|     sin_U                             | 4    | -    |        | sin                            | ram_t2p | auto | 1       |
+|     temp_real_out_U                   | 4    | -    |        | temp_real_out                  | ram_t2p | auto | 1       |
+|     temp_imag_out_U                   | 4    | -    |        | temp_imag_out                  | ram_t2p | auto | 1       |
+|     sum_real_U                        | 4    | -    |        | sum_real                       | ram_1p  | auto | 1       |
+|     sum_imag_U                        | 4    | -    |        | sum_imag                       | ram_1p  | auto | 1       |
+|    + Loop1                            | 16   | 0    |        |                                |         |      |         |
+|      p_ZL22cos_coefficients_table_0_U | 1    | -    |        | p_ZL22cos_coefficients_table_0 | rom_2p  | auto | 1       |
+|      p_ZL22sin_coefficients_table_0_U | 1    | -    |        | p_ZL22sin_coefficients_table_0 | rom_2p  | auto | 1       |
+|      p_ZL22cos_coefficients_table_1_U | 1    | -    |        | p_ZL22cos_coefficients_table_1 | rom_1p  | auto | 1       |
+|      p_ZL22cos_coefficients_table_2_U | 1    | -    |        | p_ZL22cos_coefficients_table_2 | rom_2p  | auto | 1       |
+|      p_ZL22cos_coefficients_table_3_U | 1    | -    |        | p_ZL22cos_coefficients_table_3 | rom_1p  | auto | 1       |
+|      p_ZL22cos_coefficients_table_4_U | 1    | -    |        | p_ZL22cos_coefficients_table_4 | rom_2p  | auto | 1       |
+|      p_ZL22cos_coefficients_table_5_U | 1    | -    |        | p_ZL22cos_coefficients_table_5 | rom_1p  | auto | 1       |
+|      p_ZL22cos_coefficients_table_6_U | 1    | -    |        | p_ZL22cos_coefficients_table_6 | rom_2p  | auto | 1       |
+|      p_ZL22cos_coefficients_table_7_U | 1    | -    |        | p_ZL22cos_coefficients_table_7 | rom_1p  | auto | 1       |
+|      p_ZL22sin_coefficients_table_1_U | 1    | -    |        | p_ZL22sin_coefficients_table_1 | rom_1p  | auto | 1       |
+|      p_ZL22sin_coefficients_table_2_U | 1    | -    |        | p_ZL22sin_coefficients_table_2 | rom_2p  | auto | 1       |
+|      p_ZL22sin_coefficients_table_3_U | 1    | -    |        | p_ZL22sin_coefficients_table_3 | rom_1p  | auto | 1       |
+|      p_ZL22sin_coefficients_table_4_U | 1    | -    |        | p_ZL22sin_coefficients_table_4 | rom_2p  | auto | 1       |
+|      p_ZL22sin_coefficients_table_5_U | 1    | -    |        | p_ZL22sin_coefficients_table_5 | rom_1p  | auto | 1       |
+|      p_ZL22sin_coefficients_table_6_U | 1    | -    |        | p_ZL22sin_coefficients_table_6 | rom_2p  | auto | 1       |
+|      p_ZL22sin_coefficients_table_7_U | 1    | -    |        | p_ZL22sin_coefficients_table_7 | rom_1p  | auto | 1       |
++---------------------------------------+------+------+--------+--------------------------------+---------+------+---------+
+
+
+================================================================
+== Pragma Report
+================================================================
+* Pragmas with Warnings
++-----------------+-----------------------------------+----------------------------------------+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+| Type            | Options                           | Location                               | Messages                                                                                                                                                                                                                                                  |
++-----------------+-----------------------------------+----------------------------------------+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+| array_partition | variable=real_in cyclic factor=8  | dft.cpp:50 in dft, real_in             | Ignored unsupported array_partition pragma on variable 'real_in'. This can happen when applying a pragma on a function argument with mismatched array size w.r.t. its call site, or when providing a dim too deep on an array of insufficient dimension.  |
+| array_partition | variable=imag_in cyclic factor=8  | dft.cpp:51 in dft, imag_in             | Ignored unsupported array_partition pragma on variable 'imag_in'. This can happen when applying a pragma on a function argument with mismatched array size w.r.t. its call site, or when providing a dim too deep on an array of insufficient dimension.  |
+| array_partition | variable=real_out cyclic factor=8 | dft.cpp:52 in dft, real_out            | Ignored unsupported array_partition pragma on variable 'real_out'. This can happen when applying a pragma on a function argument with mismatched array size w.r.t. its call site, or when providing a dim too deep on an array of insufficient dimension. |
+| array_partition | variable=imag_out cyclic factor=8 | dft.cpp:53 in dft, imag_out            | Ignored unsupported array_partition pragma on variable 'imag_out'. This can happen when applying a pragma on a function argument with mismatched array size w.r.t. its call site, or when providing a dim too deep on an array of insufficient dimension. |
+| dataflow        |                                   | dft.cpp:72 in dft                      | Since the only kind of statements allowed in a canonical dataflow region are variable declarations and function calls, the compiler may not be able to correctly handle the region                                                                        |
+| dataflow        |                                   | hls/solution1/directives.tcl:14 in dft | Since the only kind of statements allowed in a canonical dataflow region are variable declarations and function calls, the compiler may not be able to correctly handle the region                                                                        |
+|                 |                                   |                                        | There are a total of 9 such instances of non-canonical statements in the dataflow region                                                                                                                                                                  |
++-----------------+-----------------------------------+----------------------------------------+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+
+* Valid Pragma Syntax
++-----------------+-------------------------------------------------+-------------------------------------------------+
+| Type            | Options                                         | Location                                        |
++-----------------+-------------------------------------------------+-------------------------------------------------+
+| unroll          | factor=8                                        | dft.cpp:13 in loop1                             |
+| unroll          | factor=8                                        | dft.cpp:24 in loop2                             |
+| unroll          | factor=8                                        | dft.cpp:36 in loop3                             |
+| array_partition | variable=cos_coefficients_table cyclic factor=8 | dft.cpp:54 in dft, cos_coefficients_table       |
+| array_partition | variable=sin_coefficients_table cyclic factor=8 | dft.cpp:55 in dft, sin_coefficients_table       |
+| array_partition | cyclic dim=1 factor=8 variable=Imag             | hls/solution1/directives.tcl:11 in dft, Imag    |
+| array_partition | cyclic dim=1 factor=8 variable=Real             | hls/solution1/directives.tcl:10 in dft, Real    |
+| interface       | axis both depth=1024 port=imag_in register      | hls/solution1/directives.tcl:7 in dft, imag_in  |
+| interface       | axis both depth=1024 port=imag_out register     | hls/solution1/directives.tcl:9 in dft, imag_out |
+| interface       | axis both depth=1024 port=real_in register      | hls/solution1/directives.tcl:6 in dft, real_in  |
+| interface       | axis both depth=1024 port=real_out register     | hls/solution1/directives.tcl:8 in dft, real_out |
+| interface       | s_axilite port=return                           | hls/solution1/directives.tcl:15 in dft, return  |
++-----------------+-------------------------------------------------+-------------------------------------------------+
+
+

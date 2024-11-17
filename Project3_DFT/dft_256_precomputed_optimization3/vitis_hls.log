@@ -1,0 +1,168 @@
+INFO: [HLS 200-10] Running '/tools/Xilinx/Vitis_HLS/2022.2/bin/unwrapped/lnx64.o/vitis_hls'
+INFO: [HLS 200-10] For user 'wes_2025_r_lizarraga' on host 'waiter' (Linux_x86_64 version 5.15.0-122-generic) on Fri Nov 08 10:55:00 PST 2024
+INFO: [HLS 200-10] On os Ubuntu 22.04.5 LTS
+INFO: [HLS 200-10] In directory '/home/wes_2025_r_lizarraga/project3_DFT/dft_256_precomputed_optimized3'
+Sourcing Tcl script '/home/wes_2025_r_lizarraga/project3_DFT/dft_256_precomputed_optimized3/hls/solution1/csynth.tcl'
+INFO: [HLS 200-1510] Running: source /home/wes_2025_r_lizarraga/project3_DFT/dft_256_precomputed_optimized3/hls/solution1/csynth.tcl
+INFO: [HLS 200-1510] Running: open_project hls 
+INFO: [HLS 200-10] Opening project '/home/wes_2025_r_lizarraga/project3_DFT/dft_256_precomputed_optimized3/hls'.
+INFO: [HLS 200-1510] Running: set_top dft 
+INFO: [HLS 200-1510] Running: add_files dft.h 
+INFO: [HLS 200-10] Adding design file 'dft.h' to the project
+INFO: [HLS 200-1510] Running: add_files dft.cpp 
+INFO: [HLS 200-10] Adding design file 'dft.cpp' to the project
+INFO: [HLS 200-1510] Running: add_files coefficients256.h 
+INFO: [HLS 200-10] Adding design file 'coefficients256.h' to the project
+INFO: [HLS 200-1510] Running: add_files -tb out.gold.dat -cflags -Wno-unknown-pragmas -Wno-unknown-pragmas -Wno-unknown-pragmas -Wno-unknown-pragmas -csimflags -Wno-unknown-pragmas 
+INFO: [HLS 200-10] Adding test bench file 'out.gold.dat' to the project
+INFO: [HLS 200-1510] Running: add_files -tb dft_test.cpp -cflags -Wno-unknown-pragmas -Wno-unknown-pragmas -Wno-unknown-pragmas -Wno-unknown-pragmas -csimflags -Wno-unknown-pragmas 
+INFO: [HLS 200-10] Adding test bench file 'dft_test.cpp' to the project
+INFO: [HLS 200-1510] Running: open_solution solution1 -flow_target vivado 
+INFO: [HLS 200-10] Opening solution '/home/wes_2025_r_lizarraga/project3_DFT/dft_256_precomputed_optimized3/hls/solution1'.
+INFO: [SYN 201-201] Setting up clock 'default' with a period of 10ns.
+INFO: [HLS 200-1611] Setting target device to 'xc7z020-clg400-1'
+INFO: [HLS 200-1505] Using flow_target 'vivado'
+Resolution: For help on HLS 200-1505 see www.xilinx.com/cgi-bin/docs/rdoc?v=2022.2;t=hls+guidance;d=200-1505.html
+INFO: [HLS 200-1464] Running solution command: config_interface -m_axi_latency=0
+INFO: [HLS 200-1510] Running: set_part xc7z020-clg400-1 
+INFO: [HLS 200-1510] Running: create_clock -period 10 -name default 
+INFO: [HLS 200-1510] Running: config_interface -m_axi_latency 0 
+INFO: [HLS 200-1510] Running: source ./hls/solution1/directives.tcl
+INFO: [HLS 200-1510] Running: set_directive_top -name dft dft 
+INFO: [HLS 200-1510] Running: csynth_design 
+Running Dispatch Server on port: 44665
+INFO: [HLS 200-111] Finished File checks and directory preparation: CPU user time: 0.01 seconds. CPU system time: 0.01 seconds. Elapsed time: 10.02 seconds; current allocated memory: 214.301 MB.
+INFO: [HLS 200-10] Analyzing design file 'dft.cpp' ... 
+INFO: [HLS 200-111] Finished Source Code Analysis and Preprocessing: CPU user time: 0.27 seconds. CPU system time: 0.33 seconds. Elapsed time: 0.59 seconds; current allocated memory: 214.301 MB.
+INFO: [HLS 200-777] Using interface defaults for 'Vivado' flow target.
+INFO: [HLS 214-188] Unrolling loop 'VITIS_LOOP_24_2' (dft.cpp:24:20) in function 'dft' partially with a factor of 8 (dft.cpp:5:0)
+INFO: [HLS 214-248] Applying array_partition to '_ZL22sin_coefficients_table': Cyclic partitioning with factor 8 on dimension 1. (./coefficients256.h:2:0)
+INFO: [HLS 214-248] Applying array_partition to '_ZL22cos_coefficients_table': Cyclic partitioning with factor 8 on dimension 1. (./coefficients256.h:1:0)
+INFO: [HLS 214-248] Applying array_partition to 'real_sample': Cyclic partitioning with factor 8 on dimension 1. (dft.cpp:5:0)
+INFO: [HLS 214-248] Applying array_partition to 'imag_sample': Cyclic partitioning with factor 8 on dimension 1. (dft.cpp:5:0)
+INFO: [HLS 214-248] Applying array_partition to 'real_out': Cyclic partitioning with factor 8 on dimension 1. (dft.cpp:5:0)
+INFO: [HLS 214-248] Applying array_partition to 'imag_out': Cyclic partitioning with factor 8 on dimension 1. (dft.cpp:5:0)
+INFO: [HLS 200-111] Finished Compiling Optimization and Transform: CPU user time: 3.11 seconds. CPU system time: 0.5 seconds. Elapsed time: 3.62 seconds; current allocated memory: 215.426 MB.
+INFO: [HLS 200-111] Finished Checking Pragmas: CPU user time: 0 seconds. CPU system time: 0 seconds. Elapsed time: 0 seconds; current allocated memory: 215.426 MB.
+INFO: [HLS 200-10] Starting code transformations ...
+INFO: [HLS 200-111] Finished Standard Transforms: CPU user time: 0.02 seconds. CPU system time: 0 seconds. Elapsed time: 0.02 seconds; current allocated memory: 216.684 MB.
+INFO: [HLS 200-10] Checking synthesizability ...
+INFO: [HLS 200-111] Finished Checking Synthesizability: CPU user time: 0.01 seconds. CPU system time: 0 seconds. Elapsed time: 0.01 seconds; current allocated memory: 216.875 MB.
+INFO: [XFORM 203-510] Pipelining loop 'VITIS_LOOP_24_2' (dft.cpp:6) in function 'dft' automatically.
+INFO: [HLS 200-111] Finished Loop, function and other optimizations: CPU user time: 0.07 seconds. CPU system time: 0 seconds. Elapsed time: 0.07 seconds; current allocated memory: 240.250 MB.
+WARNING: [HLS 200-960] Cannot flatten loop 'VITIS_LOOP_19_1' (dft.cpp:7:18) in function 'dft' the outer loop is not a perfect loop because there is nontrivial logic before entering the inner loop.
+Resolution: For help on HLS 200-960 see www.xilinx.com/cgi-bin/docs/rdoc?v=2022.2;t=hls+guidance;d=200-960.html
+INFO: [HLS 200-111] Finished Architecture Synthesis: CPU user time: 0.04 seconds. CPU system time: 0.01 seconds. Elapsed time: 0.05 seconds; current allocated memory: 241.492 MB.
+INFO: [HLS 200-10] Starting hardware synthesis ...
+INFO: [HLS 200-10] Synthesizing 'dft' ...
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [HLS 200-42] -- Implementing module 'dft_Pipeline_VITIS_LOOP_24_2' 
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [SCHED 204-11] Starting scheduling ...
+INFO: [SCHED 204-61] Pipelining loop 'VITIS_LOOP_24_2'.
+WARNING: [HLS 200-880] The II Violation in module 'dft_Pipeline_VITIS_LOOP_24_2' (loop 'VITIS_LOOP_24_2'): Unable to enforce a carried dependence constraint (II = 1, distance = 1, offset = 1) between 'fadd' operation ('temp_real', dft.cpp:33) and 'fadd' operation ('temp_real', dft.cpp:33).
+Resolution: For help on HLS 200-880 see www.xilinx.com/cgi-bin/docs/rdoc?v=2022.2;t=hls+guidance;d=200-880.html
+WARNING: [HLS 200-880] The II Violation in module 'dft_Pipeline_VITIS_LOOP_24_2' (loop 'VITIS_LOOP_24_2'): Unable to enforce a carried dependence constraint (II = 2, distance = 1, offset = 1) between 'fadd' operation ('temp_real', dft.cpp:33) and 'fadd' operation ('temp_real', dft.cpp:33).
+Resolution: For help on HLS 200-880 see www.xilinx.com/cgi-bin/docs/rdoc?v=2022.2;t=hls+guidance;d=200-880.html
+WARNING: [HLS 200-880] The II Violation in module 'dft_Pipeline_VITIS_LOOP_24_2' (loop 'VITIS_LOOP_24_2'): Unable to enforce a carried dependence constraint (II = 3, distance = 1, offset = 1) between 'fadd' operation ('temp_real', dft.cpp:33) and 'fadd' operation ('temp_real', dft.cpp:33).
+Resolution: For help on HLS 200-880 see www.xilinx.com/cgi-bin/docs/rdoc?v=2022.2;t=hls+guidance;d=200-880.html
+WARNING: [HLS 200-880] The II Violation in module 'dft_Pipeline_VITIS_LOOP_24_2' (loop 'VITIS_LOOP_24_2'): Unable to enforce a carried dependence constraint (II = 4, distance = 1, offset = 1) between 'fadd' operation ('temp_real', dft.cpp:33) and 'fadd' operation ('temp_real', dft.cpp:33).
+Resolution: For help on HLS 200-880 see www.xilinx.com/cgi-bin/docs/rdoc?v=2022.2;t=hls+guidance;d=200-880.html
+WARNING: [HLS 200-880] The II Violation in module 'dft_Pipeline_VITIS_LOOP_24_2' (loop 'VITIS_LOOP_24_2'): Unable to enforce a carried dependence constraint (II = 35, distance = 1, offset = 1) between 'fadd' operation ('temp_real', dft.cpp:33) and 'fadd' operation ('temp_real', dft.cpp:33).
+Resolution: For help on HLS 200-880 see www.xilinx.com/cgi-bin/docs/rdoc?v=2022.2;t=hls+guidance;d=200-880.html
+WARNING: [HLS 200-880] The II Violation in module 'dft_Pipeline_VITIS_LOOP_24_2' (loop 'VITIS_LOOP_24_2'): Unable to enforce a carried dependence constraint (II = 39, distance = 1, offset = 1) between 'fadd' operation ('temp_real', dft.cpp:33) and 'fadd' operation ('temp_real', dft.cpp:33).
+Resolution: For help on HLS 200-880 see www.xilinx.com/cgi-bin/docs/rdoc?v=2022.2;t=hls+guidance;d=200-880.html
+INFO: [HLS 200-1470] Pipelining result : Target II = NA, Final II = 40, Depth = 56, loop 'VITIS_LOOP_24_2'
+INFO: [SCHED 204-11] Finished scheduling.
+INFO: [HLS 200-111] Finished Scheduling: CPU user time: 0.4 seconds. CPU system time: 0.03 seconds. Elapsed time: 0.43 seconds; current allocated memory: 247.188 MB.
+INFO: [BIND 205-100] Starting micro-architecture generation ...
+INFO: [BIND 205-101] Performing variable lifetime analysis.
+INFO: [BIND 205-101] Exploring resource sharing.
+INFO: [BIND 205-101] Binding ...
+INFO: [BIND 205-100] Finished micro-architecture generation.
+INFO: [HLS 200-111] Finished Binding: CPU user time: 0.3 seconds. CPU system time: 0.01 seconds. Elapsed time: 0.31 seconds; current allocated memory: 247.188 MB.
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [HLS 200-42] -- Implementing module 'dft' 
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [SCHED 204-11] Starting scheduling ...
+INFO: [SCHED 204-11] Finished scheduling.
+INFO: [HLS 200-111] Finished Scheduling: CPU user time: 0.24 seconds. CPU system time: 0.01 seconds. Elapsed time: 0.25 seconds; current allocated memory: 247.750 MB.
+INFO: [BIND 205-100] Starting micro-architecture generation ...
+INFO: [BIND 205-101] Performing variable lifetime analysis.
+INFO: [BIND 205-101] Exploring resource sharing.
+INFO: [BIND 205-101] Binding ...
+INFO: [BIND 205-100] Finished micro-architecture generation.
+INFO: [HLS 200-111] Finished Binding: CPU user time: 0.04 seconds. CPU system time: 0 seconds. Elapsed time: 0.05 seconds; current allocated memory: 247.750 MB.
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [HLS 200-10] -- Generating RTL for module 'dft_Pipeline_VITIS_LOOP_24_2' 
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [HLS 200-1030] Apply Unified Pipeline Control on module 'dft_Pipeline_VITIS_LOOP_24_2' pipeline 'VITIS_LOOP_24_2' pipeline type 'loop pipeline'
+INFO: [RTGEN 206-100] Generating core module 'faddfsub_32ns_32ns_32_5_full_dsp_1': 2 instance(s).
+INFO: [RTGEN 206-100] Generating core module 'fmul_32ns_32ns_32_4_max_dsp_1': 1 instance(s).
+INFO: [RTGEN 206-100] Generating core module 'mul_8s_8s_8_1_1': 1 instance(s).
+INFO: [RTGEN 206-100] Generating core module 'mux_73_32_1_1': 4 instance(s).
+INFO: [RTGEN 206-100] Generating core module 'mux_83_32_1_1': 8 instance(s).
+INFO: [RTGEN 206-100] Finished creating RTL model for 'dft_Pipeline_VITIS_LOOP_24_2'.
+INFO: [RTMG 210-279] Implementing memory 'dft_dft_Pipeline_VITIS_LOOP_24_2_p_ZL22cos_coefficients_table_0_ROM_AUTO_1R' using auto ROMs.
+INFO: [RTMG 210-279] Implementing memory 'dft_dft_Pipeline_VITIS_LOOP_24_2_p_ZL22sin_coefficients_table_0_ROM_AUTO_1R' using auto ROMs.
+INFO: [RTMG 210-279] Implementing memory 'dft_dft_Pipeline_VITIS_LOOP_24_2_p_ZL22cos_coefficients_table_1_ROM_AUTO_1R' using auto ROMs.
+INFO: [RTMG 210-279] Implementing memory 'dft_dft_Pipeline_VITIS_LOOP_24_2_p_ZL22cos_coefficients_table_2_ROM_AUTO_1R' using auto ROMs.
+INFO: [RTMG 210-279] Implementing memory 'dft_dft_Pipeline_VITIS_LOOP_24_2_p_ZL22cos_coefficients_table_3_ROM_AUTO_1R' using auto ROMs.
+INFO: [RTMG 210-279] Implementing memory 'dft_dft_Pipeline_VITIS_LOOP_24_2_p_ZL22cos_coefficients_table_4_ROM_AUTO_1R' using auto ROMs.
+INFO: [RTMG 210-279] Implementing memory 'dft_dft_Pipeline_VITIS_LOOP_24_2_p_ZL22cos_coefficients_table_5_ROM_AUTO_1R' using auto ROMs.
+INFO: [RTMG 210-279] Implementing memory 'dft_dft_Pipeline_VITIS_LOOP_24_2_p_ZL22cos_coefficients_table_6_ROM_AUTO_1R' using auto ROMs.
+INFO: [RTMG 210-279] Implementing memory 'dft_dft_Pipeline_VITIS_LOOP_24_2_p_ZL22cos_coefficients_table_7_ROM_AUTO_1R' using auto ROMs.
+INFO: [RTMG 210-279] Implementing memory 'dft_dft_Pipeline_VITIS_LOOP_24_2_p_ZL22sin_coefficients_table_1_ROM_AUTO_1R' using auto ROMs.
+INFO: [RTMG 210-279] Implementing memory 'dft_dft_Pipeline_VITIS_LOOP_24_2_p_ZL22sin_coefficients_table_2_ROM_AUTO_1R' using auto ROMs.
+INFO: [RTMG 210-279] Implementing memory 'dft_dft_Pipeline_VITIS_LOOP_24_2_p_ZL22sin_coefficients_table_3_ROM_AUTO_1R' using auto ROMs.
+INFO: [RTMG 210-279] Implementing memory 'dft_dft_Pipeline_VITIS_LOOP_24_2_p_ZL22sin_coefficients_table_4_ROM_AUTO_1R' using auto ROMs.
+INFO: [RTMG 210-279] Implementing memory 'dft_dft_Pipeline_VITIS_LOOP_24_2_p_ZL22sin_coefficients_table_5_ROM_AUTO_1R' using auto ROMs.
+INFO: [RTMG 210-279] Implementing memory 'dft_dft_Pipeline_VITIS_LOOP_24_2_p_ZL22sin_coefficients_table_6_ROM_AUTO_1R' using auto ROMs.
+INFO: [RTMG 210-279] Implementing memory 'dft_dft_Pipeline_VITIS_LOOP_24_2_p_ZL22sin_coefficients_table_7_ROM_AUTO_1R' using auto ROMs.
+INFO: [HLS 200-111] Finished Creating RTL model: CPU user time: 0.12 seconds. CPU system time: 0.03 seconds. Elapsed time: 0.13 seconds; current allocated memory: 251.207 MB.
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [HLS 200-10] -- Generating RTL for module 'dft' 
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [RTGEN 206-500] Setting interface mode on port 'dft/real_sample_0' to 'ap_memory'.
+INFO: [RTGEN 206-500] Setting interface mode on port 'dft/real_sample_1' to 'ap_memory'.
+INFO: [RTGEN 206-500] Setting interface mode on port 'dft/real_sample_2' to 'ap_memory'.
+INFO: [RTGEN 206-500] Setting interface mode on port 'dft/real_sample_3' to 'ap_memory'.
+INFO: [RTGEN 206-500] Setting interface mode on port 'dft/real_sample_4' to 'ap_memory'.
+INFO: [RTGEN 206-500] Setting interface mode on port 'dft/real_sample_5' to 'ap_memory'.
+INFO: [RTGEN 206-500] Setting interface mode on port 'dft/real_sample_6' to 'ap_memory'.
+INFO: [RTGEN 206-500] Setting interface mode on port 'dft/real_sample_7' to 'ap_memory'.
+INFO: [RTGEN 206-500] Setting interface mode on port 'dft/imag_sample_0' to 'ap_memory'.
+INFO: [RTGEN 206-500] Setting interface mode on port 'dft/imag_sample_1' to 'ap_memory'.
+INFO: [RTGEN 206-500] Setting interface mode on port 'dft/imag_sample_2' to 'ap_memory'.
+INFO: [RTGEN 206-500] Setting interface mode on port 'dft/imag_sample_3' to 'ap_memory'.
+INFO: [RTGEN 206-500] Setting interface mode on port 'dft/imag_sample_4' to 'ap_memory'.
+INFO: [RTGEN 206-500] Setting interface mode on port 'dft/imag_sample_5' to 'ap_memory'.
+INFO: [RTGEN 206-500] Setting interface mode on port 'dft/imag_sample_6' to 'ap_memory'.
+INFO: [RTGEN 206-500] Setting interface mode on port 'dft/imag_sample_7' to 'ap_memory'.
+INFO: [RTGEN 206-500] Setting interface mode on port 'dft/real_out_0' to 'ap_memory'.
+INFO: [RTGEN 206-500] Setting interface mode on port 'dft/real_out_1' to 'ap_memory'.
+INFO: [RTGEN 206-500] Setting interface mode on port 'dft/real_out_2' to 'ap_memory'.
+INFO: [RTGEN 206-500] Setting interface mode on port 'dft/real_out_3' to 'ap_memory'.
+INFO: [RTGEN 206-500] Setting interface mode on port 'dft/real_out_4' to 'ap_memory'.
+INFO: [RTGEN 206-500] Setting interface mode on port 'dft/real_out_5' to 'ap_memory'.
+INFO: [RTGEN 206-500] Setting interface mode on port 'dft/real_out_6' to 'ap_memory'.
+INFO: [RTGEN 206-500] Setting interface mode on port 'dft/real_out_7' to 'ap_memory'.
+INFO: [RTGEN 206-500] Setting interface mode on port 'dft/imag_out_0' to 'ap_memory'.
+INFO: [RTGEN 206-500] Setting interface mode on port 'dft/imag_out_1' to 'ap_memory'.
+INFO: [RTGEN 206-500] Setting interface mode on port 'dft/imag_out_2' to 'ap_memory'.
+INFO: [RTGEN 206-500] Setting interface mode on port 'dft/imag_out_3' to 'ap_memory'.
+INFO: [RTGEN 206-500] Setting interface mode on port 'dft/imag_out_4' to 'ap_memory'.
+INFO: [RTGEN 206-500] Setting interface mode on port 'dft/imag_out_5' to 'ap_memory'.
+INFO: [RTGEN 206-500] Setting interface mode on port 'dft/imag_out_6' to 'ap_memory'.
+INFO: [RTGEN 206-500] Setting interface mode on port 'dft/imag_out_7' to 'ap_memory'.
+INFO: [RTGEN 206-500] Setting interface mode on function 'dft' to 'ap_ctrl_hs'.
+INFO: [RTGEN 206-100] Finished creating RTL model for 'dft'.
+INFO: [HLS 200-111] Finished Creating RTL model: CPU user time: 0.41 seconds. CPU system time: 0.03 seconds. Elapsed time: 0.45 seconds; current allocated memory: 259.070 MB.
+INFO: [HLS 200-111] Finished Generating all RTL models: CPU user time: 0.22 seconds. CPU system time: 0.03 seconds. Elapsed time: 0.25 seconds; current allocated memory: 262.973 MB.
+INFO: [HLS 200-111] Finished Updating report files: CPU user time: 0.52 seconds. CPU system time: 0.02 seconds. Elapsed time: 0.55 seconds; current allocated memory: 273.707 MB.
+INFO: [VHDL 208-304] Generating VHDL RTL for dft.
+INFO: [VLOG 209-307] Generating Verilog RTL for dft.
+INFO: [HLS 200-790] **** Loop Constraint Status: All loop constraints were NOT satisfied.
+INFO: [HLS 200-789] **** Estimated Fmax: 116.73 MHz
+INFO: [HLS 200-111] Finished Command csynth_design CPU user time: 5.79 seconds. CPU system time: 1 seconds. Elapsed time: 6.79 seconds; current allocated memory: 59.406 MB.
+INFO: [HLS 200-112] Total CPU user time: 6.59 seconds. Total CPU system time: 1.21 seconds. Total elapsed time: 17.71 seconds; peak allocated memory: 273.707 MB.

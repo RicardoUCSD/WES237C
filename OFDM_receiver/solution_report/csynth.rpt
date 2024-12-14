@@ -1,0 +1,287 @@
+
+
+================================================================
+== Synthesis Summary Report of 'ofdm_receiver'
+================================================================
++ General Information: 
+    * Date:           Fri Dec 13 17:01:16 2024
+    * Version:        2022.2 (Build 3670227 on Oct 13 2022)
+    * Project:        hls_ofdm_rx
+    * Solution:       solution1 (Vivado IP Flow Target)
+    * Product family: zynq
+    * Target device:  xc7z020-clg400-1
+    
+
++ Performance & Resource Estimates: 
+    
+    PS: '+' for module; 'o' for loop; '*' for dataflow
+    +------------------------------------------+------+------+---------+-----------+----------+---------+------+----------+-----------+----------+-------------+-------------+-----+
+    |                  Modules                 | Issue|      | Latency |  Latency  | Iteration|         | Trip |          |           |          |             |             |     |
+    |                  & Loops                 | Type | Slack| (cycles)|    (ns)   |  Latency | Interval| Count| Pipelined|   BRAM    |    DSP   |      FF     |     LUT     | URAM|
+    +------------------------------------------+------+------+---------+-----------+----------+---------+------+----------+-----------+----------+-------------+-------------+-----+
+    |+ ofdm_receiver                           |     -|  0.04|     8921|  8.921e+04|         -|     8922|     -|        no|  101 (36%)|  24 (10%)|  12371 (11%)|  13509 (25%)|    -|
+    | + fft                                    |     -|  0.04|     7887|  7.887e+04|         -|     7887|     -|        no|   91 (32%)|  24 (10%)|  12111 (11%)|  12987 (24%)|    -|
+    |  + fft_Pipeline_1                        |     -|  0.79|     1026|  1.026e+04|         -|     1026|     -|        no|          -|         -|     24 (~0%)|     62 (~0%)|    -|
+    |   o Loop 1                               |     -|  7.30|     1024|  1.024e+04|         2|        1|  1024|       yes|          -|         -|            -|            -|    -|
+    |  + fft_Pipeline_2                        |     -|  0.79|     1026|  1.026e+04|         -|     1026|     -|        no|          -|         -|     24 (~0%)|     62 (~0%)|    -|
+    |   o Loop 1                               |     -|  7.30|     1024|  1.024e+04|         2|        1|  1024|       yes|          -|         -|            -|            -|    -|
+    |  + fft_Pipeline_Reverse_Operation        |     -|  0.79|      516|  5.160e+03|         -|      516|     -|        no|    1 (~0%)|         -|    369 (~0%)|    192 (~0%)|    -|
+    |   o Reverse_Operation                    |     -|  7.30|      514|  5.140e+03|         4|        1|   512|       yes|          -|         -|            -|            -|    -|
+    |  + fft_stage_first                       |     -|  0.89|      524|  5.240e+03|         -|      524|     -|        no|          -|         -|    963 (~0%)|    1448 (2%)|    -|
+    |   o First_stage_loop                     |     -|  7.30|      522|  5.220e+03|        12|        1|   512|       yes|          -|         -|            -|            -|    -|
+    |  + fft_Pipeline_Stage_loop_2             |     -|  0.04|      530|  5.300e+03|         -|      530|     -|        no|          -|         -|    1167 (1%)|    386 (~0%)|    -|
+    |   o Stage_loop_2                         |     -|  7.30|      528|  5.280e+03|        18|        1|   512|       yes|          -|         -|            -|            -|    -|
+    |  + fft_Pipeline_Stage_loop_3             |     -|  0.04|      530|  5.300e+03|         -|      530|     -|        no|          -|         -|    979 (~0%)|    272 (~0%)|    -|
+    |   o Stage_loop_3                         |     -|  7.30|      528|  5.280e+03|        18|        1|   512|       yes|          -|         -|            -|            -|    -|
+    |  + fft_Pipeline_Stage_loop_4             |     -|  0.04|      530|  5.300e+03|         -|      530|     -|        no|          -|         -|    1167 (1%)|    386 (~0%)|    -|
+    |   o Stage_loop_4                         |     -|  7.30|      528|  5.280e+03|        18|        1|   512|       yes|          -|         -|            -|            -|    -|
+    |  + fft_Pipeline_Stage_loop_5             |     -|  0.04|      530|  5.300e+03|         -|      530|     -|        no|          -|         -|    979 (~0%)|    272 (~0%)|    -|
+    |   o Stage_loop_5                         |     -|  7.30|      528|  5.280e+03|        18|        1|   512|       yes|          -|         -|            -|            -|    -|
+    |  + fft_Pipeline_Stage_loop_6             |     -|  0.04|      530|  5.300e+03|         -|      530|     -|        no|          -|         -|    905 (~0%)|    258 (~0%)|    -|
+    |   o Stage_loop_6                         |     -|  7.30|      528|  5.280e+03|        18|        1|   512|       yes|          -|         -|            -|            -|    -|
+    |  + fft_Pipeline_Stage_loop_7             |     -|  0.04|      530|  5.300e+03|         -|      530|     -|        no|          -|         -|    905 (~0%)|    258 (~0%)|    -|
+    |   o Stage_loop_7                         |     -|  7.30|      528|  5.280e+03|        18|        1|   512|       yes|          -|         -|            -|            -|    -|
+    |  + fft_Pipeline_Stage_loop_8             |     -|  0.04|      530|  5.300e+03|         -|      530|     -|        no|          -|         -|    905 (~0%)|    258 (~0%)|    -|
+    |   o Stage_loop_8                         |     -|  7.30|      528|  5.280e+03|        18|        1|   512|       yes|          -|         -|            -|            -|    -|
+    |  + fft_Pipeline_Stage_loop_9             |     -|  0.04|      530|  5.300e+03|         -|      530|     -|        no|          -|         -|    905 (~0%)|    258 (~0%)|    -|
+    |   o Stage_loop_9                         |     -|  7.30|      528|  5.280e+03|        18|        1|   512|       yes|          -|         -|            -|            -|    -|
+    |  + fft_Pipeline_last_stage_loop          |     -|  0.04|      529|  5.290e+03|         -|      529|     -|        no|          -|         -|    836 (~0%)|    226 (~0%)|    -|
+    |   o last_stage_loop                      |     -|  7.30|      527|  5.270e+03|        17|        1|   512|       yes|          -|         -|            -|            -|    -|
+    |  + fft_Pipeline_13                       |     -|  2.46|     1027|  1.027e+04|         -|     1027|     -|        no|          -|         -|     70 (~0%)|     71 (~0%)|    -|
+    |   o Loop 1                               |     -|  7.30|     1025|  1.025e+04|         3|        1|  1024|       yes|          -|         -|            -|            -|    -|
+    |  + fft_Pipeline_14                       |     -|  2.46|     1027|  1.027e+04|         -|     1027|     -|        no|          -|         -|     70 (~0%)|     71 (~0%)|    -|
+    |   o Loop 1                               |     -|  7.30|     1025|  1.025e+04|         3|        1|  1024|       yes|          -|         -|            -|            -|    -|
+    | + ofdm_receiver_Pipeline_VITIS_LOOP_9_1  |     -|  0.13|     1029|  1.029e+04|         -|     1029|     -|        no|          -|         -|    203 (~0%)|    242 (~0%)|    -|
+    |  o VITIS_LOOP_9_1                        |     -|  7.30|     1027|  1.027e+04|         5|        1|  1024|       yes|          -|         -|            -|            -|    -|
+    +------------------------------------------+------+------+---------+-----------+----------+---------+------+----------+-----------+----------+-------------+-------------+-----+
+
+
+================================================================
+== HW Interfaces
+================================================================
+* AP_FIFO
++-----------+------------+
+| Interface | Data Width |
++-----------+------------+
+| inptr     | 32         |
+| outptr    | 32         |
++-----------+------------+
+
+* TOP LEVEL CONTROL
++-----------+--------------+--------+
+| Interface | Type         | Ports  |
++-----------+--------------+--------+
+| ap_clk    | clock        | ap_clk |
+| ap_rst    | reset        | ap_rst |
+| ap_ctrl   | ap_ctrl_none |        |
++-----------+--------------+--------+
+
+
+================================================================
+== SW I/O Information
+================================================================
+* Top Function Arguments
++----------+-----------+----------+
+| Argument | Direction | Datatype |
++----------+-----------+----------+
+| inptr    | in        | pointer  |
+| outptr   | out       | pointer  |
++----------+-----------+----------+
+
+* SW-to-HW Mapping
++----------+--------------+-----------+
+| Argument | HW Interface | HW Type   |
++----------+--------------+-----------+
+| inptr    | inptr        | interface |
+| outptr   | outptr       | interface |
++----------+--------------+-----------+
+
+
+================================================================
+== Bind Op Report
+================================================================
++------------------------------------------+-----+--------+-------------+-----+--------+---------+
+| Name                                     | DSP | Pragma | Variable    | Op  | Impl   | Latency |
++------------------------------------------+-----+--------+-------------+-----+--------+---------+
+| + ofdm_receiver                          | 24  |        |             |     |        |         |
+|   add_ln20_fu_167_p2                     | -   |        | add_ln20    | add | fabric | 0       |
+|  + fft                                   | 24  |        |             |     |        |         |
+|   + fft_Pipeline_1                       | 0   |        |             |     |        |         |
+|     empty_31_fu_91_p2                    | -   |        | empty_31    | add | fabric | 0       |
+|   + fft_Pipeline_2                       | 0   |        |             |     |        |         |
+|     empty_25_fu_91_p2                    | -   |        | empty_25    | add | fabric | 0       |
+|   + fft_Pipeline_Reverse_Operation       | 0   |        |             |     |        |         |
+|     add_ln92_fu_280_p2                   | -   |        | add_ln92    | add | fabric | 0       |
+|   + fft_stage_first                      | 0   |        |             |     |        |         |
+|     sh_amt_fu_298_p2                     | -   |        | sh_amt      | sub | fabric | 0       |
+|     sh_amt_1_fu_490_p2                   | -   |        | sh_amt_1    | sub | fabric | 0       |
+|     sub_ln455_fu_986_p2                  | -   |        | sub_ln455   | sub | fabric | 0       |
+|     sh_amt_2_fu_350_p2                   | -   |        | sh_amt_2    | sub | fabric | 0       |
+|     sh_amt_3_fu_563_p2                   | -   |        | sh_amt_3    | sub | fabric | 0       |
+|     sub_ln455_1_fu_997_p2                | -   |        | sub_ln455_1 | sub | fabric | 0       |
+|     sh_amt_4_fu_402_p2                   | -   |        | sh_amt_4    | sub | fabric | 0       |
+|     sh_amt_5_fu_636_p2                   | -   |        | sh_amt_5    | sub | fabric | 0       |
+|     sub_ln455_2_fu_1008_p2               | -   |        | sub_ln455_2 | sub | fabric | 0       |
+|     sh_amt_6_fu_454_p2                   | -   |        | sh_amt_6    | sub | fabric | 0       |
+|     sh_amt_7_fu_709_p2                   | -   |        | sh_amt_7    | sub | fabric | 0       |
+|     sub_ln455_3_fu_1019_p2               | -   |        | sub_ln455_3 | sub | fabric | 0       |
+|     ret_V_fu_1038_p2                     | -   |        | ret_V       | sub | fabric | 0       |
+|     ret_V_1_fu_1052_p2                   | -   |        | ret_V_1     | sub | fabric | 0       |
+|     ret_V_2_fu_1058_p2                   | -   |        | ret_V_2     | add | fabric | 0       |
+|     ret_V_3_fu_1064_p2                   | -   |        | ret_V_3     | add | fabric | 0       |
+|     add_ln119_fu_247_p2                  | -   |        | add_ln119   | add | fabric | 0       |
+|   + fft_Pipeline_Stage_loop_2            | 0   |        |             |     |        |         |
+|     add_ln158_fu_319_p2                  | -   |        | add_ln158   | add | fabric | 0       |
+|     j_fu_367_p2                          | -   |        | j           | add | fabric | 0       |
+|     j_lower_fu_373_p2                    | -   |        | j_lower     | add | fabric | 0       |
+|   + fft_Pipeline_Stage_loop_3            | 0   |        |             |     |        |         |
+|     add_ln191_fu_325_p2                  | -   |        | add_ln191   | add | fabric | 0       |
+|     j_fu_377_p2                          | -   |        | j           | add | fabric | 0       |
+|     j_lower_fu_383_p2                    | -   |        | j_lower     | add | fabric | 0       |
+|   + fft_Pipeline_Stage_loop_4            | 0   |        |             |     |        |         |
+|     add_ln224_fu_321_p2                  | -   |        | add_ln224   | add | fabric | 0       |
+|     j_fu_373_p2                          | -   |        | j           | add | fabric | 0       |
+|     j_lower_fu_379_p2                    | -   |        | j_lower     | add | fabric | 0       |
+|   + fft_Pipeline_Stage_loop_5            | 0   |        |             |     |        |         |
+|     add_ln257_fu_325_p2                  | -   |        | add_ln257   | add | fabric | 0       |
+|     j_fu_377_p2                          | -   |        | j           | add | fabric | 0       |
+|     j_lower_fu_383_p2                    | -   |        | j_lower     | add | fabric | 0       |
+|   + fft_Pipeline_Stage_loop_6            | 0   |        |             |     |        |         |
+|     add_ln290_fu_352_p2                  | -   |        | add_ln290   | add | fabric | 0       |
+|     j_fu_404_p2                          | -   |        | j           | add | fabric | 0       |
+|     j_lower_fu_410_p2                    | -   |        | j_lower     | add | fabric | 0       |
+|   + fft_Pipeline_Stage_loop_7            | 0   |        |             |     |        |         |
+|     add_ln323_fu_352_p2                  | -   |        | add_ln323   | add | fabric | 0       |
+|     j_fu_404_p2                          | -   |        | j           | add | fabric | 0       |
+|     j_lower_fu_410_p2                    | -   |        | j_lower     | add | fabric | 0       |
+|   + fft_Pipeline_Stage_loop_8            | 0   |        |             |     |        |         |
+|     add_ln356_fu_352_p2                  | -   |        | add_ln356   | add | fabric | 0       |
+|     j_fu_404_p2                          | -   |        | j           | add | fabric | 0       |
+|     j_lower_fu_410_p2                    | -   |        | j_lower     | add | fabric | 0       |
+|   + fft_Pipeline_Stage_loop_9            | 0   |        |             |     |        |         |
+|     add_ln389_fu_350_p2                  | -   |        | add_ln389   | add | fabric | 0       |
+|     j_fu_400_p2                          | -   |        | j           | add | fabric | 0       |
+|     j_lower_fu_406_p2                    | -   |        | j_lower     | add | fabric | 0       |
+|   + fft_Pipeline_last_stage_loop         | 0   |        |             |     |        |         |
+|     add_ln426_fu_340_p2                  | -   |        | add_ln426   | add | fabric | 0       |
+|   + fft_Pipeline_13                      | 0   |        |             |     |        |         |
+|     empty_29_fu_91_p2                    | -   |        | empty_29    | add | fabric | 0       |
+|   + fft_Pipeline_14                      | 0   |        |             |     |        |         |
+|     empty_27_fu_91_p2                    | -   |        | empty_27    | add | fabric | 0       |
+|  + ofdm_receiver_Pipeline_VITIS_LOOP_9_1 | 0   |        |             |     |        |         |
+|    add_ln9_fu_139_p2                     | -   |        | add_ln9     | add | fabric | 0       |
++------------------------------------------+-----+--------+-------------+-----+--------+---------+
+
+
+================================================================
+== Bind Storage Report
+================================================================
++------------------------------------+------+------+--------+------------+---------+------+---------+
+| Name                               | BRAM | URAM | Pragma | Variable   | Storage | Impl | Latency |
++------------------------------------+------+------+--------+------------+---------+------+---------+
+| + ofdm_receiver                    | 101  | 0    |        |            |         |      |         |
+|   dout_U                           | 2    | -    |        | dout       | ram_1p  | auto | 1       |
+|   xr_U                             | 2    | -    |        | xr         | ram_1p  | auto | 1       |
+|   xi_U                             | 2    | -    |        | xi         | ram_1p  | auto | 1       |
+|   xr_out_U                         | 2    | -    |        | xr_out     | ram_1p  | auto | 1       |
+|   xi_out_U                         | 2    | -    |        | xi_out     | ram_1p  | auto | 1       |
+|  + fft                             | 91   | 0    |        |            |         |      |         |
+|    in_R_U                          | 2    | -    |        | in_R       | ram_s2p | auto | 1       |
+|    in_R_1_U                        | 2    | -    |        | in_R_1     | ram_s2p | auto | 1       |
+|    in_I_U                          | 2    | -    |        | in_I       | ram_s2p | auto | 1       |
+|    in_I_1_U                        | 2    | -    |        | in_I_1     | ram_s2p | auto | 1       |
+|    Stage0_R_U                      | 2    | -    |        | Stage0_R   | ram_1p  | auto | 1       |
+|    Stage0_R_1_U                    | 2    | -    |        | Stage0_R_1 | ram_1p  | auto | 1       |
+|    Stage0_I_U                      | 2    | -    |        | Stage0_I   | ram_t2p | auto | 1       |
+|    Stage1_R_0_U                    | 2    | -    |        | Stage1_R_0 | ram_s2p | auto | 1       |
+|    Stage1_R_1_U                    | 2    | -    |        | Stage1_R_1 | ram_s2p | auto | 1       |
+|    Stage1_I_0_U                    | 2    | -    |        | Stage1_I_0 | ram_s2p | auto | 1       |
+|    Stage1_I_1_U                    | 2    | -    |        | Stage1_I_1 | ram_s2p | auto | 1       |
+|    Stage2_R_U                      | 2    | -    |        | Stage2_R   | ram_t2p | auto | 1       |
+|    Stage2_I_U                      | 2    | -    |        | Stage2_I   | ram_t2p | auto | 1       |
+|    Stage2_I_1_U                    | 2    | -    |        | Stage2_I_1 | ram_t2p | auto | 1       |
+|    Stage3_R_U                      | 2    | -    |        | Stage3_R   | ram_t2p | auto | 1       |
+|    Stage3_R_1_U                    | 2    | -    |        | Stage3_R_1 | ram_t2p | auto | 1       |
+|    Stage3_I_U                      | 2    | -    |        | Stage3_I   | ram_t2p | auto | 1       |
+|    Stage3_I_1_U                    | 2    | -    |        | Stage3_I_1 | ram_t2p | auto | 1       |
+|    Stage4_R_U                      | 2    | -    |        | Stage4_R   | ram_t2p | auto | 1       |
+|    Stage4_I_U                      | 2    | -    |        | Stage4_I   | ram_t2p | auto | 1       |
+|    Stage4_I_1_U                    | 2    | -    |        | Stage4_I_1 | ram_t2p | auto | 1       |
+|    Stage5_R_U                      | 2    | -    |        | Stage5_R   | ram_t2p | auto | 1       |
+|    Stage5_R_1_U                    | 2    | -    |        | Stage5_R_1 | ram_t2p | auto | 1       |
+|    Stage5_I_U                      | 2    | -    |        | Stage5_I   | ram_t2p | auto | 1       |
+|    Stage5_I_1_U                    | 2    | -    |        | Stage5_I_1 | ram_t2p | auto | 1       |
+|    Stage6_R_U                      | 2    | -    |        | Stage6_R   | ram_t2p | auto | 1       |
+|    Stage6_R_1_U                    | 2    | -    |        | Stage6_R_1 | ram_t2p | auto | 1       |
+|    Stage6_I_U                      | 2    | -    |        | Stage6_I   | ram_t2p | auto | 1       |
+|    Stage6_I_1_U                    | 2    | -    |        | Stage6_I_1 | ram_t2p | auto | 1       |
+|    Stage7_R_U                      | 2    | -    |        | Stage7_R   | ram_t2p | auto | 1       |
+|    Stage7_R_1_U                    | 2    | -    |        | Stage7_R_1 | ram_t2p | auto | 1       |
+|    Stage7_I_U                      | 2    | -    |        | Stage7_I   | ram_t2p | auto | 1       |
+|    Stage7_I_1_U                    | 2    | -    |        | Stage7_I_1 | ram_t2p | auto | 1       |
+|    Stage8_R_U                      | 2    | -    |        | Stage8_R   | ram_t2p | auto | 1       |
+|    Stage8_R_1_U                    | 2    | -    |        | Stage8_R_1 | ram_t2p | auto | 1       |
+|    Stage8_I_U                      | 2    | -    |        | Stage8_I   | ram_t2p | auto | 1       |
+|    Stage8_I_1_U                    | 2    | -    |        | Stage8_I_1 | ram_t2p | auto | 1       |
+|    Stage9_R_U                      | 2    | -    |        | Stage9_R   | ram_t2p | auto | 1       |
+|    Stage9_R_1_U                    | 2    | -    |        | Stage9_R_1 | ram_t2p | auto | 1       |
+|    Stage9_I_U                      | 2    | -    |        | Stage9_I   | ram_t2p | auto | 1       |
+|    Stage9_I_1_U                    | 2    | -    |        | Stage9_I_1 | ram_t2p | auto | 1       |
+|    buf_o_R_U                       | 2    | -    |        | buf_o_R    | ram_t2p | auto | 1       |
+|    buf_o_R_1_U                     | 2    | -    |        | buf_o_R_1  | ram_t2p | auto | 1       |
+|    buf_o_I_U                       | 2    | -    |        | buf_o_I    | ram_t2p | auto | 1       |
+|    buf_o_I_1_U                     | 2    | -    |        | buf_o_I_1  | ram_t2p | auto | 1       |
+|    W_real_U                        | 1    | -    |        | W_real     | rom_1p  | auto | 1       |
+|    W_imag_U                        | 1    | -    |        | W_imag     | rom_1p  | auto | 1       |
+|   + fft_Pipeline_Reverse_Operation | 1    | 0    |        |            |         |      |         |
+|     LUT_MAP_U                      | 1    | -    |        | LUT_MAP    | rom_2p  | auto | 1       |
++------------------------------------+------+------+--------+------------+---------+------+---------+
+
+
+================================================================
+== Pragma Report
+================================================================
+* Valid Pragma Syntax
++-----------------+---------------------------------------------------+--------------------------------------------+
+| Type            | Options                                           | Location                                   |
++-----------------+---------------------------------------------------+--------------------------------------------+
+| array_partition | variable = in_R type = cyclic factor = Factor     | fft.cpp:44 in fft                          |
+| array_partition | variable = in_I type = cyclic factor = Factor     | fft.cpp:45 in fft                          |
+| array_partition | variable = Stage0_R type = cyclic factor = Factor | fft.cpp:46 in fft                          |
+| array_partition | variable = Stage1_R type = cyclic factor = Factor | fft.cpp:47 in fft                          |
+| array_partition | variable = Stage1_I type = cyclic factor = Factor | fft.cpp:48 in fft                          |
+| array_partition | variable = Stage2_I type = cyclic factor = Factor | fft.cpp:49 in fft                          |
+| array_partition | variable = Stage3_R type = cyclic factor = Factor | fft.cpp:50 in fft                          |
+| array_partition | variable = Stage3_I type = cyclic factor = Factor | fft.cpp:51 in fft                          |
+| array_partition | variable = Stage4_I type = cyclic factor = Factor | fft.cpp:52 in fft                          |
+| array_partition | variable = Stage5_R type = cyclic factor = Factor | fft.cpp:53 in fft                          |
+| array_partition | variable = Stage5_I type = cyclic factor = Factor | fft.cpp:54 in fft                          |
+| array_partition | variable = Stage6_R type = cyclic factor = Factor | fft.cpp:55 in fft                          |
+| array_partition | variable = Stage6_I type = cyclic factor = Factor | fft.cpp:56 in fft                          |
+| array_partition | variable = Stage7_R type = cyclic factor = Factor | fft.cpp:57 in fft                          |
+| array_partition | variable = Stage7_I type = cyclic factor = Factor | fft.cpp:58 in fft                          |
+| array_partition | variable = Stage8_R type = cyclic factor = Factor | fft.cpp:59 in fft                          |
+| array_partition | variable = Stage8_I type = cyclic factor = Factor | fft.cpp:60 in fft                          |
+| array_partition | variable = Stage9_R type = cyclic factor = Factor | fft.cpp:61 in fft                          |
+| array_partition | variable = Stage9_I type = cyclic factor = Factor | fft.cpp:62 in fft                          |
+| array_partition | variable = buf_o_R type = cyclic factor = Factor  | fft.cpp:63 in fft                          |
+| array_partition | variable = buf_o_I type = cyclic factor = Factor  | fft.cpp:64 in fft                          |
+| pipeline        |                                                   | fft.cpp:94 in bit_reverse                  |
+| pipeline        |                                                   | fft.cpp:121 in fft_stage_first             |
+| dependence      | dependent = false type = inter variable = OUT_R   | fft.cpp:147 in fft_stages                  |
+| dependence      | dependent = false type = inter variable = OUT_I   | fft.cpp:148 in fft_stages                  |
+| pipeline        |                                                   | fft.cpp:160 in fft_stages                  |
+| pipeline        |                                                   | fft.cpp:193 in fft_stages                  |
+| pipeline        |                                                   | fft.cpp:226 in fft_stages                  |
+| pipeline        |                                                   | fft.cpp:259 in fft_stages                  |
+| pipeline        |                                                   | fft.cpp:292 in fft_stages                  |
+| pipeline        |                                                   | fft.cpp:325 in fft_stages                  |
+| pipeline        |                                                   | fft.cpp:358 in fft_stages                  |
+| pipeline        |                                                   | fft.cpp:391 in fft_stages                  |
+| pipeline        |                                                   | fft.cpp:428 in fft_stage_last              |
+| interface       | ap_fifo port=inptr                                | ofdm_recvr.cpp:12 in ofdm_receiver, inptr  |
+| interface       | ap_fifo port=outptr                               | ofdm_recvr.cpp:13 in ofdm_receiver, outptr |
+| interface       | ap_ctrl_none port=return                          | ofdm_recvr.cpp:14 in ofdm_receiver, return |
++-----------------+---------------------------------------------------+--------------------------------------------+
+
+

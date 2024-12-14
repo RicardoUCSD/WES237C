@@ -1,0 +1,67 @@
+INFO: [HLS 200-10] Running '/tools/Xilinx/Vitis_HLS/2022.2/bin/unwrapped/lnx64.o/vitis_hls'
+INFO: [HLS 200-10] For user 'wes_2025_r_lizarraga' on host 'waiter' (Linux_x86_64 version 5.15.0-125-generic) on Fri Dec 13 11:30:17 PST 2024
+INFO: [HLS 200-10] On os Ubuntu 22.04.5 LTS
+INFO: [HLS 200-10] In directory '/home/wes_2025_r_lizarraga/project4_FFT_and_OFDM_Receiver/fft1024_Best_4'
+Sourcing Tcl script '/home/wes_2025_r_lizarraga/project4_FFT_and_OFDM_Receiver/fft1024_Best_4/hls/solution1/export.tcl'
+INFO: [HLS 200-1510] Running: source /home/wes_2025_r_lizarraga/project4_FFT_and_OFDM_Receiver/fft1024_Best_4/hls/solution1/export.tcl
+INFO: [HLS 200-1510] Running: open_project hls 
+INFO: [HLS 200-10] Opening project '/home/wes_2025_r_lizarraga/project4_FFT_and_OFDM_Receiver/fft1024_Best_4/hls'.
+INFO: [HLS 200-1510] Running: set_top fft 
+INFO: [HLS 200-1510] Running: add_files fft.h 
+INFO: [HLS 200-10] Adding design file 'fft.h' to the project
+INFO: [HLS 200-1510] Running: add_files fft.cpp 
+INFO: [HLS 200-10] Adding design file 'fft.cpp' to the project
+INFO: [HLS 200-1510] Running: add_files -tb out.gold.dat -cflags -Wno-unknown-pragmas -Wno-unknown-pragmas -Wno-unknown-pragmas -Wno-unknown-pragmas -Wno-unknown-pragmas -Wno-unknown-pragmas -Wno-unknown-pragmas -Wno-unknown-pragmas -Wno-unknown-pragmas -Wno-unknown-pragmas -Wno-unknown-pragmas -Wno-unknown-pragmas -Wno-unknown-pragmas -Wno-unknown-pragmas -Wno-unknown-pragmas -csimflags -Wno-unknown-pragmas 
+INFO: [HLS 200-10] Adding test bench file 'out.gold.dat' to the project
+INFO: [HLS 200-1510] Running: add_files -tb fft_test.cpp -cflags -Wno-unknown-pragmas -Wno-unknown-pragmas -Wno-unknown-pragmas -Wno-unknown-pragmas -Wno-unknown-pragmas -Wno-unknown-pragmas -Wno-unknown-pragmas -Wno-unknown-pragmas -Wno-unknown-pragmas -Wno-unknown-pragmas -Wno-unknown-pragmas -Wno-unknown-pragmas -Wno-unknown-pragmas -Wno-unknown-pragmas -Wno-unknown-pragmas -csimflags -Wno-unknown-pragmas 
+INFO: [HLS 200-10] Adding test bench file 'fft_test.cpp' to the project
+INFO: [HLS 200-1510] Running: open_solution solution1 -flow_target vivado 
+INFO: [HLS 200-10] Opening solution '/home/wes_2025_r_lizarraga/project4_FFT_and_OFDM_Receiver/fft1024_Best_4/hls/solution1'.
+INFO: [SYN 201-201] Setting up clock 'default' with a period of 10ns.
+INFO: [HLS 200-1611] Setting target device to 'xc7z020-clg400-1'
+INFO: [HLS 200-1505] Using flow_target 'vivado'
+Resolution: For help on HLS 200-1505 see www.xilinx.com/cgi-bin/docs/rdoc?v=2022.2;t=hls+guidance;d=200-1505.html
+INFO: [HLS 200-1464] Running solution command: config_export -output=/home/wes_2025_r_lizarraga/project4_FFT_and_OFDM_Receiver/fft1024_Best_4/exportedRTL_2
+INFO: [HLS 200-1464] Running solution command: config_interface -m_axi_addr64=0
+INFO: [HLS 200-1510] Running: set_part xc7z020-clg400-1 
+INFO: [HLS 200-1510] Running: create_clock -period 10 -name default 
+INFO: [HLS 200-1510] Running: config_export -output /home/wes_2025_r_lizarraga/project4_FFT_and_OFDM_Receiver/fft1024_Best_4/exportedRTL_2 
+INFO: [HLS 200-1510] Running: config_interface -m_axi_addr64=0 
+INFO: [HLS 200-1510] Running: source ./hls/solution1/directives.tcl
+INFO: [HLS 200-1510] Running: set_directive_loop_tripcount -avg 1024 -max 1024 -min 1024 fft/bit_reverse0 
+INFO: [HLS 200-1510] Running: set_directive_loop_tripcount -avg 10 -max 10 -min 10 fft/bit_reverse1 
+INFO: [HLS 200-1510] Running: set_directive_loop_tripcount -max 1024 -min 2 fft/butterfly 
+INFO: [HLS 200-1510] Running: set_directive_loop_tripcount -max 1024 -min 2 fft/DFTpts 
+INFO: [HLS 200-1510] Running: set_directive_top -name fft fft 
+INFO: [HLS 200-1510] Running: export_design -rtl verilog -format ip_catalog -output /home/wes_2025_r_lizarraga/project4_FFT_and_OFDM_Receiver/fft1024_Best_4/exportedRTL_2 
+Running Dispatch Server on port: 39109
+INFO: [IMPL 213-8] Exporting RTL as a Vivado IP.
+
+****** Vivado v2022.2 (64-bit)
+  **** SW Build 3671981 on Fri Oct 14 04:59:54 MDT 2022
+  **** IP Build 3669848 on Fri Oct 14 08:30:02 MDT 2022
+    ** Copyright 1986-2022 Xilinx, Inc. All Rights Reserved.
+
+source run_ippack.tcl -notrace
+INFO: [IP_Flow 19-234] Refreshing IP repositories
+INFO: [IP_Flow 19-1704] No user IP repositories specified
+INFO: [IP_Flow 19-2313] Loaded Vivado IP repository '/tools/Xilinx/Vivado/2022.2/data/ip'.
+WARNING: [IP_Flow 19-4832] The IP name 'fft_fadd_32ns_32ns_32_5_full_dsp_1_ip' you have specified is long. The Windows operating system has path length limitations. It is recommended you use shorter names to reduce the likelihood of issues.
+INFO: [IP_Flow 19-1686] Generating 'Synthesis' target for IP 'fft_fadd_32ns_32ns_32_5_full_dsp_1_ip'...
+INFO: [IP_Flow 19-1686] Generating 'Simulation' target for IP 'fft_fadd_32ns_32ns_32_5_full_dsp_1_ip'...
+WARNING: [IP_Flow 19-4832] The IP name 'fft_fmul_32ns_32ns_32_4_max_dsp_1_ip' you have specified is long. The Windows operating system has path length limitations. It is recommended you use shorter names to reduce the likelihood of issues.
+INFO: [IP_Flow 19-1686] Generating 'Synthesis' target for IP 'fft_fmul_32ns_32ns_32_4_max_dsp_1_ip'...
+INFO: [IP_Flow 19-1686] Generating 'Simulation' target for IP 'fft_fmul_32ns_32ns_32_4_max_dsp_1_ip'...
+WARNING: [IP_Flow 19-4832] The IP name 'fft_fsub_32ns_32ns_32_5_full_dsp_1_ip' you have specified is long. The Windows operating system has path length limitations. It is recommended you use shorter names to reduce the likelihood of issues.
+INFO: [IP_Flow 19-1686] Generating 'Synthesis' target for IP 'fft_fsub_32ns_32ns_32_5_full_dsp_1_ip'...
+INFO: [IP_Flow 19-1686] Generating 'Simulation' target for IP 'fft_fsub_32ns_32ns_32_5_full_dsp_1_ip'...
+WARNING: [IP_Flow 19-4832] The IP name 'fft_sitofp_32s_32_6_no_dsp_1_ip' you have specified is long. The Windows operating system has path length limitations. It is recommended you use shorter names to reduce the likelihood of issues.
+INFO: [IP_Flow 19-1686] Generating 'Synthesis' target for IP 'fft_sitofp_32s_32_6_no_dsp_1_ip'...
+INFO: [IP_Flow 19-1686] Generating 'Simulation' target for IP 'fft_sitofp_32s_32_6_no_dsp_1_ip'...
+INFO: [IP_Flow 19-234] Refreshing IP repositories
+INFO: [IP_Flow 19-1704] No user IP repositories specified
+INFO: [IP_Flow 19-2313] Loaded Vivado IP repository '/tools/Xilinx/Vivado/2022.2/data/ip'.
+INFO: [Common 17-206] Exiting Vivado at Fri Dec 13 11:30:40 2024...
+INFO: [HLS 200-802] Generated output file exportedRTL_2/export.zip
+INFO: [HLS 200-111] Finished Command export_design CPU user time: 11.8 seconds. CPU system time: 0.97 seconds. Elapsed time: 22.04 seconds; current allocated memory: 13.160 MB.
+INFO: [HLS 200-112] Total CPU user time: 12.5 seconds. Total CPU system time: 1.13 seconds. Total elapsed time: 32.8 seconds; peak allocated memory: 227.062 MB.

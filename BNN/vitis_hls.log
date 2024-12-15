@@ -1,0 +1,50 @@
+INFO: [HLS 200-10] Running '/tools/Xilinx/Vitis_HLS/2022.2/bin/unwrapped/lnx64.o/vitis_hls'
+INFO: [HLS 200-10] For user 'wes_2025_r_lizarraga' on host 'waiter' (Linux_x86_64 version 5.15.0-125-generic) on Sat Dec 14 03:06:01 PST 2024
+INFO: [HLS 200-10] On os Ubuntu 22.04.5 LTS
+INFO: [HLS 200-10] In directory '/home/wes_2025_r_lizarraga/project5_BNN'
+Sourcing Tcl script '/home/wes_2025_r_lizarraga/project5_BNN/bnn/solution1/csynth.tcl'
+INFO: [HLS 200-1510] Running: source /home/wes_2025_r_lizarraga/project5_BNN/bnn/solution1/csynth.tcl
+INFO: [HLS 200-1510] Running: open_project bnn 
+INFO: [HLS 200-10] Opening project '/home/wes_2025_r_lizarraga/project5_BNN/bnn'.
+INFO: [HLS 200-1510] Running: set_top bnn 
+INFO: [HLS 200-1510] Running: add_files bnn.cpp 
+INFO: [HLS 200-10] Adding design file 'bnn.cpp' to the project
+INFO: [HLS 200-1510] Running: add_files bnn.h 
+INFO: [HLS 200-10] Adding design file 'bnn.h' to the project
+INFO: [HLS 200-1510] Running: add_files -tb bnn_test.cpp -cflags -Wno-unknown-pragmas -Wno-unknown-pragmas -Wno-unknown-pragmas -Wno-unknown-pragmas -Wno-unknown-pragmas -Wno-unknown-pragmas -Wno-unknown-pragmas -Wno-unknown-pragmas -Wno-unknown-pragmas -Wno-unknown-pragmas -Wno-unknown-pragmas -Wno-unknown-pragmas -csimflags -Wno-unknown-pragmas 
+INFO: [HLS 200-10] Adding test bench file 'bnn_test.cpp' to the project
+INFO: [HLS 200-1510] Running: open_solution solution1 -flow_target vivado 
+INFO: [HLS 200-10] Opening solution '/home/wes_2025_r_lizarraga/project5_BNN/bnn/solution1'.
+INFO: [SYN 201-201] Setting up clock 'default' with a period of 10ns.
+INFO: [HLS 200-1611] Setting target device to 'xc7z020-clg400-1'
+INFO: [HLS 200-1505] Using flow_target 'vivado'
+Resolution: For help on HLS 200-1505 see www.xilinx.com/cgi-bin/docs/rdoc?v=2022.2;t=hls+guidance;d=200-1505.html
+INFO: [HLS 200-1464] Running solution command: config_interface -m_axi_latency=0
+INFO: [HLS 200-1510] Running: set_part xc7z020-clg400-1 
+INFO: [HLS 200-1510] Running: create_clock -period 10 -name default 
+INFO: [HLS 200-1510] Running: config_interface -m_axi_latency 0 
+INFO: [HLS 200-1510] Running: csynth_design 
+Running Dispatch Server on port: 42723
+INFO: [HLS 200-111] Finished File checks and directory preparation: CPU user time: 0.01 seconds. CPU system time: 0.01 seconds. Elapsed time: 10.02 seconds; current allocated memory: 213.953 MB.
+INFO: [HLS 200-10] Analyzing design file 'bnn.cpp' ... 
+ERROR: [HLS 207-3777] use of undeclared identifier 'memset'; did you mean 'wmemset'? (bnn.cpp:99:2)
+INFO: [HLS 207-4436] 'wmemset' declared here (/usr/include/wchar.h:272:17)
+ERROR: [HLS 207-2759] cannot initialize a parameter of type 'wchar_t *' with an lvalue of type 'int [128]' (bnn.cpp:99:9)
+INFO: [HLS 207-4414] passing argument to parameter '__s' here (/usr/include/wchar.h:272:35)
+ERROR: [HLS 207-3777] use of undeclared identifier 'memset'; did you mean 'wmemset'? (bnn.cpp:121:4)
+ERROR: [HLS 207-2759] cannot initialize a parameter of type 'wchar_t *' with an lvalue of type 'int [128]' (bnn.cpp:121:11)
+ERROR: [HLS 207-3777] use of undeclared identifier 'memset'; did you mean 'wmemset'? (bnn.cpp:141:4)
+ERROR: [HLS 207-2759] cannot initialize a parameter of type 'wchar_t *' with an lvalue of type 'int [128]' (bnn.cpp:141:11)
+INFO: [HLS 200-111] Finished Command csynth_design CPU user time: 0.33 seconds. CPU system time: 0.19 seconds. Elapsed time: 0.51 seconds; current allocated memory: 0.000 MB.
+ 
+    while executing
+"source /home/wes_2025_r_lizarraga/project5_BNN/bnn/solution1/csynth.tcl"
+    invoked from within
+"hls::main /home/wes_2025_r_lizarraga/project5_BNN/bnn/solution1/csynth.tcl"
+    ("uplevel" body line 1)
+    invoked from within
+"uplevel 1 hls::main {*}$newargs"
+    (procedure "hls_proc" line 16)
+    invoked from within
+"hls_proc [info nameofexecutable] $argv"
+INFO: [HLS 200-112] Total CPU user time: 1 seconds. Total CPU system time: 0.38 seconds. Total elapsed time: 11.27 seconds; peak allocated memory: 213.953 MB.
